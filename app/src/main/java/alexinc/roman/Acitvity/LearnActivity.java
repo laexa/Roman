@@ -19,6 +19,7 @@ import alexinc.roman.R;
 
 public class LearnActivity extends AppCompatActivity {
 
+
     private int section;
     private Bundle bundle;
     LinearLayout linearLayout;
