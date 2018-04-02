@@ -1,0 +1,73 @@
+<resources>
+
+    <!-- Base application theme. -->
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/background_splash</item>
+    </style>
+
+    <style name="themeForMainMenu" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorWhite</item>
+        <item name="colorPrimaryDark">@color/colorAlphabet</item>
+        <item name="colorAccent">@color/colorWhite</item>
+        <item name="android:navigationBarColor">@color/colorFriut</item>
+    </style>
+
+    <style name="themeForAnimal" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:colorPrimary">@color/colorWhite</item>
+        <item name="android:colorPrimaryDark">@color/colorAnimal</item>
+        <item name="android:colorAccent">@color/colorAnimal</item>
+        <item name="android:navigationBarColor">@color/colorAnimal</item>
+    </style>
+
+    <style name="themeForFamily" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:colorPrimary">@color/colorWhite</item>
+        <item name="android:colorPrimaryDark">@color/colorFamily</item>
+        <item name="android:colorAccent">@color/colorFamily</item>
+        <item name="android:navigationBarColor">@color/colorFamily</item>
+    </style>
+
+    <style name="themeForAlphabet" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:colorPrimary">@color/colorWhite</item>
+        <item name="android:colorPrimaryDark">@color/colorAlphabet</item>
+        <item name="android:colorAccent">@color/colorAlphabet</item>
+        <item name="android:navigationBarColor">@color/colorAlphabet</item>
+    </style>
+
+    <style name="themeForVegetable" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:colorPrimary">@color/colorWhite</item>
+        <item name="android:colorPrimaryDark">@color/colorVegetable</item>
+        <item name="android:colorAccent">@color/colorVegetable</item>
+        <item name="android:navigationBarColor">@color/colorVegetable</item>
+    </style>
+
+    <style name="themeForFriut" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:colorPrimary">@color/colorFriut</item>
+        <item name="android:colorPrimaryDark">@color/colorFriut</item>
+        <item name="android:colorAccent">@color/colorFriut</item>
+        <item name="android:navigationBarColor">@color/colorFriut</item>
+    </style>
+
+    <style name="textStyleForMainMenu">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">29dp</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+    </style>
+
+    <style name="textStyleForMenu">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+</resources>
+

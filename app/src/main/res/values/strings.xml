@@ -1,0 +1,14 @@
+<resources>
+
+    <string name="app_name">Roman</string>
+    <string name="aplhabet">Алфавит</string>
+    <string name="learn">Давай вчитися разом</string>
+    <string name="testLearn">Можливо екзамен</string>
+    <string name="family">Сім\'я</string>
+    <string name="vegetable">Овочі</string>
+    <string name="animal">Тварини</string>
+    <string name="fruit">Фрукти</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+
+</resources>

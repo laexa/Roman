@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@color/cardview_dark_background"
+    android:id="@+id/linear_layout_view_learn">
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="5"
+        android:layout_gravity="top"
+        android:orientation="vertical"
+        android:divider="@drawable/ic_mother">
+
+        <ImageView
+
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="22dp"
+            android:layout_marginBottom="22dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/line"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:text="@string/fruit"
+                android:textColor="@color/colorWhite"
+                android:textSize="26dp"
+                android:textAlignment="center"
+                android:fontFamily="@font/montserrat"
+                android:id="@+id/text_view_word"
+                />
+
+            <ImageView
+                android:layout_weight="1"
+                android:layout_marginBottom="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/ic_equal"/>
+
+
+            <TextView
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:text="@string/fruit"
+                android:textColor="@color/colorWhite"
+                android:textSize="26dp"
+                android:textAlignment="center"
+                android:fontFamily="@font/montserrat"
+                android:id="@+id/text_view_translate_word"
+                />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginVertical="20dp"
+            app:cardCornerRadius="20dp"
+            android:elevation="10dp"
+            app:cardBackgroundColor="@color/cardview_light_background">
+
+
+           <ImageView
+               android:layout_gravity="center"
+               android:foregroundGravity="center"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:id="@+id/image_view_learn"/>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_gravity="center"
+        android:gravity="bottom"
+        android:padding="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="5"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="10dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_left"
+                android:id="@+id/button_left_layout_learn"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="10dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_play_button"
+                android:id="@+id/button_again_layout_learn"/>
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="10dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_right"
+                android:id="@+id/button_right_layout_learn"/>
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_weight="0"
+            android:layout_marginTop="22dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="22dp"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/line"/>
+
+    </LinearLayout>
+
+</LinearLayout>

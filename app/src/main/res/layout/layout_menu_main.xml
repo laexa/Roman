@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+
+        android:id="@+id/relativ_layout_menu_main_alphabet"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/colorAlphabet">
+
+        <ImageView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/imageViewAlphabet"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/line" />
+
+        <ImageView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageViewAlphabet"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/line" />
+
+        <ImageView
+
+            android:id="@+id/imageViewAlphabet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="15dp"
+            android:background="@mipmap/icone_alphabet" />
+
+        <TextView
+
+            style="@style/textStyleForMainMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/aplhabet" />
+
+        <Button
+
+            android:id="@+id/alphabetButtonMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="20dp"
+            android:background="@mipmap/icone_menu_next" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_weight="1"
+            android:id="@+id/relativ_layout_menu_main_family"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/colorFamily">
+
+            <ImageView
+
+                android:layout_marginLeft="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/line"
+                android:layout_above="@+id/imageViewFamily"
+                android:layout_centerHorizontal="true"/>
+
+            <ImageView
+
+                android:layout_marginBottom="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/line"
+                android:layout_below="@+id/imageViewFamily"
+                android:layout_centerHorizontal="true"/>
+
+
+            <ImageView
+
+                android:layout_marginLeft="50dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_alignParentLeft="true"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/family_icone"
+                android:id="@+id/imageViewFamily"/>
+
+            <TextView
+
+                style="@style/textStyleForMainMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/family"/>
+
+            <Button
+
+                android:layout_marginRight="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_alignParentRight="true"
+                android:background="@mipmap/icone_menu_next"
+                android:id="@+id/familyButtonMenu"/>
+
+        </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/colorVegetable"
+        android:id="@+id/relativ_layout_menu_main_vegetable">
+
+        <ImageView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/imageViewVegetable"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/line"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageViewVegetable"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="30dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/line"/>
+
+        <ImageView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@mipmap/icone_vegetable"
+            android:id="@+id/imageViewVegetable"/>
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/vegetable"
+            style="@style/textStyleForMainMenu"/>
+
+        <Button
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:background="@mipmap/icone_menu_next"
+            android:id="@+id/vegetableButtonMenu"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/colorAnimal"
+        android:id="@+id/relativ_layout_menu_main_animal">
+
+        <ImageView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_above="@+id/imageViewAnimal"
+            android:background="@drawable/line"/>
+
+        <ImageView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="30dp"
+            android:layout_below="@+id/imageViewAnimal"
+            android:background="@drawable/line"/>
+
+        <ImageView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@mipmap/icone_animal"
+            android:id="@+id/imageViewAnimal"/>
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/animal"
+            style="@style/textStyleForMainMenu"/>
+
+        <Button
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:background="@mipmap/icone_menu_next"
+            android:id="@+id/animalButtonMenu"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/colorFriut"
+        android:id="@+id/relativ_layout_menu_main_fruit">
+
+        <ImageView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_above="@+id/imageViewFruit"
+            android:background="@drawable/line"/>
+
+        <ImageView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="30dp"
+            android:layout_below="@+id/imageViewFruit"
+            android:background="@drawable/line"/>
+
+        <ImageView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@mipmap/icone_fruit"
+            android:id="@+id/imageViewFruit"/>
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/fruit"
+            style="@style/textStyleForMainMenu"/>
+
+        <Button
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:background="@mipmap/icone_menu_next"
+            android:id="@+id/fruitButtonMenu"/>
+
+    </RelativeLayout>
+
+</LinearLayout>
