@@ -10,9 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity
-            android:name=".Acitvity.SplashActivity"
-            android:theme="@style/SplashTheme">
+        <activity android:name=".acitvity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,18 +18,24 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Acitvity.LearnActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".acitvity.LearnActivity"
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".Acitvity.TestActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".acitvity.TestActivity"
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".Acitvity.MenuViewChoise"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".acitvity.MenuViewChoise"
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".Acitvity.MainActivity"
-            android:theme="@style/themeForMainMenu"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".acitvity.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/themeForMainMenu" />
+
+        <activity android:name=".beta.SplashScreen" />
 
         <meta-data
             android:name="preloaded_fonts"

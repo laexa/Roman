@@ -1,4 +1,4 @@
-package alexinc.roman.Acitvity;
+package alexinc.roman.acitvity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

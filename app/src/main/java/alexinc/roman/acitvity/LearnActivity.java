@@ -1,4 +1,4 @@
-package alexinc.roman.Acitvity;
+package alexinc.roman.acitvity;
 
 import android.database.Cursor;
 import android.os.Bundle;
