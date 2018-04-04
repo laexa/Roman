@@ -1,15 +1,15 @@
-package alexinc.roman.ClickListene;
+package alexinc.roman.click_process;
 
 import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import alexinc.roman.DataBase.DataBaseHelper;
-import alexinc.roman.PlaySound.PlaySound;
+import alexinc.roman.data.DataBaseHelper;
+import alexinc.roman.media.PlaySound;
 import alexinc.roman.R;
 
-public class OnClickListeneTestClass  implements View.OnClickListener{
+public class OnClickExamLogic implements View.OnClickListener{
 
     ImageView imageViewTrue;
     ImageView imageViewFalse_1;
@@ -20,7 +20,7 @@ public class OnClickListeneTestClass  implements View.OnClickListener{
     PlaySound playSound;
     DataBaseHelper dataBaseHelper;
 
-    public OnClickListeneTestClass(ImageView imageViewTrue, ImageView imageViewFalse_1, ImageView imageViewFalse_2, ImageView imageViewFalse_3, TextView textView, Context context) {
+    public OnClickExamLogic(ImageView imageViewTrue, ImageView imageViewFalse_1, ImageView imageViewFalse_2, ImageView imageViewFalse_3, TextView textView, Context context) {
 
         this.imageViewTrue = imageViewTrue;
         this.imageViewFalse_1 = imageViewFalse_1;

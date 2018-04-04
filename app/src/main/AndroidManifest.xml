@@ -3,6 +3,7 @@
     package="alexinc.roman">
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -19,23 +20,21 @@
         </activity>
 
         <activity
-            android:name=".acitvity.LearnActivity"
+            android:name=".acitvity.LessonActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".acitvity.TestActivity"
+            android:name=".acitvity.ExamActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".acitvity.MenuViewChoise"
+            android:name=".acitvity.ChoiceExamLessonMenuActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".acitvity.MainActivity"
+            android:name=".acitvity.ChoiceKindThemeMenuActivity"
             android:screenOrientation="portrait"
             android:theme="@style/themeForMainMenu" />
-
-        <activity android:name=".beta.SplashScreen" />
 
         <meta-data
             android:name="preloaded_fonts"

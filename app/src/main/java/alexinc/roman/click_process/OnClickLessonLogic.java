@@ -1,4 +1,4 @@
-package alexinc.roman.ClickListene;
+package alexinc.roman.click_process;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -6,11 +6,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import alexinc.roman.DataBase.DataBaseHelper;
-import alexinc.roman.PlaySound.PlaySound;
+import alexinc.roman.data.DataBaseHelper;
+import alexinc.roman.media.PlaySound;
 import alexinc.roman.R;
 
-public class OnClickListeneLearnClass implements View.OnClickListener {
+public class OnClickLessonLogic implements View.OnClickListener {
 
     PlaySound playSound;
     Cursor cursor;
@@ -22,7 +22,7 @@ public class OnClickListeneLearnClass implements View.OnClickListener {
     ImageView imageView;
     int countCursor = 0;
 
-    public OnClickListeneLearnClass(Context context, int section, TextView textViewWord, TextView textViewTranslateWord, ImageView imageView) {
+    public OnClickLessonLogic(Context context, int section, TextView textViewWord, TextView textViewTranslateWord, ImageView imageView) {
 
         this.context = context;
         this.section = section;

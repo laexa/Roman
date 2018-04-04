@@ -1,4 +1,4 @@
-package alexinc.roman;
+package alexinc.roman.global;
 
 public class Const {
 

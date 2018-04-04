@@ -9,14 +9,14 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import alexinc.roman.Const;
+import alexinc.roman.global.Const;
 import alexinc.roman.R;
 
 /**
  * Created by alex on 28.03.2018.
  */
 
-public class MenuViewChoise extends AppCompatActivity {
+public final class ChoiceExamLessonMenuActivity extends AppCompatActivity {
 
     private RelativeLayout relativeLayoutMainLayout;
     private ImageView imageView;
@@ -121,7 +121,7 @@ public class MenuViewChoise extends AppCompatActivity {
     private View.OnClickListener trainingClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Intent intent = new Intent(MenuViewChoise.this, LearnActivity.class);
+            Intent intent = new Intent(ChoiceExamLessonMenuActivity.this, LessonActivity.class);
             intent.putExtra(Const.SELECTED_SECTION, section);
             startActivity(intent);
         }
@@ -130,7 +130,7 @@ public class MenuViewChoise extends AppCompatActivity {
     private View.OnClickListener examClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Intent intent = new Intent(MenuViewChoise.this, TestActivity.class);
+            Intent intent = new Intent(ChoiceExamLessonMenuActivity.this, ExamActivity.class);
             intent.putExtra(Const.SELECTED_SECTION, section);
             startActivity(intent);
         }

@@ -8,13 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
-import alexinc.roman.Const;
+import alexinc.roman.global.Const;
 import alexinc.roman.R;
-import alexinc.roman.SavePreferences.Preferences;
 
-public final class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public final class ChoiceKindThemeMenuActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "ChoiceKindThemeMenuActivity";
 
     private Button familyButtonMenu;
     private Button alphabetButtonMenu;
@@ -75,7 +74,7 @@ public final class MainActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View v) {
         Log.d(this.getClass().getSimpleName(), String.format("onClickById(%d)", v.getId()));
-        Intent intent = new Intent(this, MenuViewChoise.class);
+        Intent intent = new Intent(this, ChoiceExamLessonMenuActivity.class);
 
         switch (v.getId()) {
             case R.id.alphabetButtonMenu:

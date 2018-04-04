@@ -1,15 +1,9 @@
-package alexinc.roman.PlaySound;
+package alexinc.roman.media;
 
 
 import android.content.Context;
-import android.content.res.AssetFileDescriptor;
-import android.content.res.AssetManager;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
 
-import java.io.FileDescriptor;
-import java.io.IOException;
-import java.io.RandomAccessFile;
 import java.util.Random;
 
 import alexinc.roman.R;
@@ -22,7 +16,6 @@ public class PlaySound {
 
     private MediaPlayer mediaPlayer;
     private Context context;
-    private AssetFileDescriptor descriptor;
     private int idGoodSound_1;
     private int idGoodSound_2;
 
