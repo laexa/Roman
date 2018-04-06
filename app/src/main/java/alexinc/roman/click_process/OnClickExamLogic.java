@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import alexinc.roman.data.DataBaseHelper;
+import alexinc.roman.data.DBHelper;
 import alexinc.roman.media.PlaySound;
 import alexinc.roman.R;
 
@@ -18,7 +18,7 @@ public class OnClickExamLogic implements View.OnClickListener{
     TextView textView;
     Context context;
     PlaySound playSound;
-    DataBaseHelper dataBaseHelper;
+    DBHelper DBHelper;
 
     public OnClickExamLogic(ImageView imageViewTrue, ImageView imageViewFalse_1, ImageView imageViewFalse_2, ImageView imageViewFalse_3, TextView textView, Context context) {
 
@@ -35,7 +35,7 @@ public class OnClickExamLogic implements View.OnClickListener{
     public void onClick(View v) {
 
         playSound = new PlaySound(context);
-        dataBaseHelper = new DataBaseHelper(context);
+        DBHelper = new DBHelper(context);
 
         if (v.getId() == R.id.imageViewTest_1){
             textView.setText("23323");

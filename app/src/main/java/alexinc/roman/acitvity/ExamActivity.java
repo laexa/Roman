@@ -10,10 +10,6 @@ import alexinc.roman.R;
 import alexinc.roman.click_process.OnClickExamLogic;
 import alexinc.roman.global.Const;
 
-/**
- * Created by alex on 28.03.2018.
- */
-
 public class ExamActivity extends AppCompatActivity {
 
     private int section;
