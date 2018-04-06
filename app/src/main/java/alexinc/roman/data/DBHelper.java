@@ -13,13 +13,14 @@ import java.util.List;
 import alexinc.roman.R;
 
 
-public class DBHelper extends SQLiteOpenHelper {
+public final class DBHelper extends SQLiteOpenHelper {
 
-    private static final String LOG_TAG = "SQLiteOpenHelperApplication -> ";
+    private static final String TAG = "SQLiteOpenHelperApplication -> ";
 
-    static final int DATABASE_VERSION = 11;
+    private static final String DATABASE_NAME = "DATA_BASE_GAME";
+    private static final int DATABASE_VERSION = 11;
 
-    static final String DATABASE_NAME = "DATA_BASE_GAME";
+    static final int COUNT_TABLES = 5;
 
     static final String TABLE_FAMILY = "family";
     static final String TABLE_ANIMAL = "animal";
@@ -41,7 +42,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
+        Log.d(TAG, "onCreate : " + db.getVersion());
         db.execSQL("CREATE TABLE " + TABLE_FAMILY + "("
                 + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_WORD + " TEXT,"
                 + KEY_WORD_TRANSLATE + " TEXT," + KEY_IMAGE + " INTEGER," + KEY_SOUND_ORIGINAL + " INTEGER,"
@@ -72,6 +73,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        Log.d(TAG, "onUpgrade : current " + db.getVersion() + " old " + oldVersion + " new " + newVersion);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_FAMILY);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_ANIMAL);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_ALPHABET);
@@ -81,12 +83,12 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public void clearTable(String TABLE_NAME) {
-        Log.i(LOG_TAG, "clearTable: " + TABLE_NAME);
+        Log.i(TAG, "clearTable: " + TABLE_NAME);
 
         SQLiteDatabase db = this.getWritableDatabase();
         int count = db.delete(TABLE_NAME, null, null);
 
-        Log.i(LOG_TAG, "deleted rows : " + count);
+        Log.i(TAG, "deleted rows : " + count);
     }
 
     private void insert(SQLiteDatabase db, String tableName, String word, String wordTranslate, int image, int soundOriginal, int soundTranslate) {
@@ -105,13 +107,12 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public List<ContentValues> getAllData(String table) {
+        Log.d(TAG, "getAllData from table : " + table);
         final SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = db.query(table, null, null, null, null, null, null);
         List<ContentValues> values = new ArrayList<>();
-        // ставим позицию курсора на первую строку выборки
-        // если в выборке нет строк, вернется false
+
         if (c.moveToFirst()) {
-            // определяем номера столбцов по имени в выборке
             int idColIndex = c.getColumnIndex(KEY_ID);
             int wordColIndex = c.getColumnIndex(KEY_WORD);
             int wordTranslateColIndex = c.getColumnIndex(KEY_WORD_TRANSLATE);
@@ -129,25 +130,17 @@ public class DBHelper extends SQLiteOpenHelper {
                 value.put(KEY_SOUND_TRANSLATE, c.getString(soundTranslateColIndex));
 
                 values.add(value);
+                Log.d(TAG, "value : " + value.toString());
             } while (c.moveToNext());
         } else
-            Log.d(LOG_TAG, "0 rows");
+            Log.d(TAG, "find 0 rows");
         c.close();
+        Log.d(TAG, "find" + values.size() + "rows");
         return values;
     }
 
-    public Cursor getW_CursorByName(final String _tableName) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        return db.query(_tableName, null, null, null, null, null, null);
-    }
-
-    public Cursor getR_CursorByName(final String _tableName) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        return db.query(_tableName, null, null, null, null, null, null);
-    }
 
     private void loadDataBase(SQLiteDatabase db) {
-
         //family 8
 
         insert(db, DBHelper.TABLE_FAMILY, "Тато", "Tata", R.drawable.ic_father, R.raw.father_original, R.raw.father_translate);
@@ -192,7 +185,6 @@ public class DBHelper extends SQLiteOpenHelper {
         insert(db, DBHelper.TABLE_VEGETABLE, "Картопля", "Cartof", R.drawable.ic_potato, R.raw.potato_original, R.raw.potato_translate);
         insert(db, DBHelper.TABLE_VEGETABLE, "Гарбуз", "Dovleac", R.drawable.ic_pumpkin, R.raw.pumpkin_original, R.raw.pumpkin_translate);
         insert(db, DBHelper.TABLE_VEGETABLE, "Помідор", "Tomată", R.drawable.ic_tomato, R.raw.tomato_original, R.raw.tomato_translate);
-
 
     }
 }
