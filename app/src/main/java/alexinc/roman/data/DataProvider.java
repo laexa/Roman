@@ -238,16 +238,19 @@ public class DataProvider implements DataOperation {
         for (VocabularyModel model : list) {
             int positionMain = list.indexOf(model);
 
-            for (int secondIndex = positionMain; secondIndex < list.size(); secondIndex++) {
+            for (int secondIndex = positionMain + 1; secondIndex < list.size(); secondIndex++) {
 
                 VocabularyModel secondModel = list.get(secondIndex);
 
                 if (secondModel.getId() == model.getId()
                         && secondModel.getOrigin().trim().equals(model.getOrigin().trim())
-                        && secondModel.getTranslate().trim().equals(model.getTranslate().trim()))
+                        && secondModel.getTranslate().trim().equals(model.getTranslate().trim())) {
+                    Log.d(TAG, "isAllUnique : false positions [ " + positionMain + " , " + secondIndex + " ]");
                     return false;
+                }
             }
         }
+        Log.d(TAG, "isAllUnique : true");
         return true;
     }
 
