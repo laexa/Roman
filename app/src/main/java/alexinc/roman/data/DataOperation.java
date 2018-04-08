@@ -1,5 +1,7 @@
 package alexinc.roman.data;
 
+import android.support.annotation.Nullable;
+
 import java.util.List;
 
 import alexinc.roman.data.model.ExamModel;
@@ -11,8 +13,10 @@ public interface DataOperation {
 
     List<VocabularyModel> getWordsByTheme(String tableName);
 
+    @Nullable
     List<VocabularyModel> getAllWords(String tableName);
 
+    @Nullable
     VocabularyModel getWordById(int wordId);
 
     List<VocabularyModel> getFamilyList();

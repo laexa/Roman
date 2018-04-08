@@ -2,7 +2,7 @@ package alexinc.roman.data.model;
 
 import java.util.List;
 
-public class ExamModel {
+public final class ExamModel {
 
     private VocabularyModel answer;
     private List<VocabularyModel> variants;
@@ -48,10 +48,10 @@ public class ExamModel {
 
     private boolean compare(VocabularyModel model) {
         shootCount ++;
-        if (answer.getId() == model.getId()) {
+        if (answer.getId() == model.getId() && answer.getOrigin().trim().equals(model.getOrigin().trim())) {
             if (shootCount == 1) markIsAnsweredRight();
         }
-        return answer.getId() == model.getId();
+        return (answer.getId() == model.getId() && answer.getOrigin().trim().equals(model.getOrigin().trim()));
     }
 
     public boolean isGuessed() {

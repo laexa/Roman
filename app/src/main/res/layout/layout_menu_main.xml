@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:ignore="ContentDescription|RelativeOverlap">
 
     <RelativeLayout
-        android:id="@+id/relativ_layout_menu_main_alphabet"
+        android:id="@+id/rlAlphabetCont"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="1dp"
@@ -13,34 +15,35 @@
         android:background="@color/colorAlphabet">
 
         <ImageView
-            android:id="@+id/imageViewAlphabet"
+            android:id="@+id/ivAlphabetIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginEnd="48dp"
             android:layout_marginStart="48dp"
-            android:background="@mipmap/icone_alphabet" />
+            android:contentDescription="@string/content_description"
+            android:src="@mipmap/ic_alphabet" />
 
         <TextView
             style="@style/textStyleForMainMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="@string/aplhabet" />
+            android:text="@string/alphabet" />
 
-        <Button
-            android:id="@+id/alphabetButtonMenu"
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="16dp"
-            android:background="@mipmap/icone_menu_next" />
+            android:background="@null"
+            android:src="@mipmap/menu_icon_next" />
 
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/relativ_layout_menu_main_family"
+        android:id="@+id/rlFamilyCont"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="1dp"
@@ -49,13 +52,14 @@
         android:background="@color/colorFamily">
 
         <ImageView
-            android:id="@+id/imageViewFamily"
+            android:id="@+id/ivFamilyIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginEnd="48dp"
             android:layout_marginStart="48dp"
-            android:background="@mipmap/family_icone" />
+            android:contentDescription="@string/content_description"
+            android:src="@mipmap/ic_family" />
 
         <TextView
             style="@style/textStyleForMainMenu"
@@ -64,19 +68,19 @@
             android:layout_centerInParent="true"
             android:text="@string/family" />
 
-        <Button
-            android:id="@+id/familyButtonMenu"
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="16dp"
-            android:background="@mipmap/icone_menu_next" />
+            android:background="@null"
+            android:src="@mipmap/menu_icon_next" />
 
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/relativ_layout_menu_main_vegetable"
+        android:id="@+id/rlVegetableCont"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="1dp"
@@ -86,13 +90,14 @@
 
 
         <ImageView
-            android:id="@+id/imageViewVegetable"
+            android:id="@+id/ivVegetableIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginEnd="48dp"
             android:layout_marginStart="48dp"
-            android:background="@mipmap/icone_vegetable" />
+            android:contentDescription="@string/content_description"
+            android:src="@mipmap/ic_vegetable" />
 
         <TextView
             style="@style/textStyleForMainMenu"
@@ -101,19 +106,19 @@
             android:layout_centerInParent="true"
             android:text="@string/vegetable" />
 
-        <Button
-            android:id="@+id/vegetableButtonMenu"
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="16dp"
-            android:background="@mipmap/icone_menu_next" />
+            android:background="@null"
+            android:src="@mipmap/menu_icon_next" />
 
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/relativ_layout_menu_main_animal"
+        android:id="@+id/rlAnimalCont"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="1dp"
@@ -122,13 +127,14 @@
         android:background="@color/colorAnimal">
 
         <ImageView
-            android:id="@+id/imageViewAnimal"
+            android:id="@+id/ivAnimalIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginEnd="48dp"
             android:layout_marginStart="48dp"
-            android:background="@mipmap/icone_animal" />
+            android:contentDescription="@string/content_description"
+            android:src="@mipmap/ic_animal" />
 
         <TextView
             style="@style/textStyleForMainMenu"
@@ -137,33 +143,35 @@
             android:layout_centerInParent="true"
             android:text="@string/animal" />
 
-        <Button
-            android:id="@+id/animalButtonMenu"
+        <ImageButton
+            android:id="@+id/btnAnimal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="16dp"
-            android:background="@mipmap/icone_menu_next" />
+            android:background="@null"
+            android:src="@mipmap/menu_icon_next" />
 
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/relativ_layout_menu_main_fruit"
+        android:id="@+id/rlFruitCont"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="1dp"
         android:layout_weight="1"
-        android:background="@color/colorFriut">
+        android:background="@color/colorFruit">
 
         <ImageView
-            android:id="@+id/imageViewFruit"
+            android:id="@+id/ivFruitIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginEnd="48dp"
             android:layout_marginStart="48dp"
-            android:background="@mipmap/icone_fruit" />
+            android:contentDescription="@string/content_description"
+            android:src="@mipmap/ic_fruit" />
 
         <TextView
             style="@style/textStyleForMainMenu"
@@ -172,14 +180,15 @@
             android:layout_centerInParent="true"
             android:text="@string/fruit" />
 
-        <Button
-            android:id="@+id/fruitButtonMenu"
+        <ImageButton
+            android:id="@+id/btnFruit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="16dp"
-            android:background="@mipmap/icone_menu_next" />
+            android:background="@null"
+            android:src="@mipmap/menu_icon_next" />
 
     </RelativeLayout>
 

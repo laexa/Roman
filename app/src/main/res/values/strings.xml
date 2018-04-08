@@ -1,15 +1,16 @@
 <resources>
 
     <string name="app_name">Roman</string>
-    <string name="aplhabet">Алфавит</string>
+    <string name="alphabet">Алфавит</string>
     <string name="training">Давай вчитися разом</string>
     <string name="exam">Можливо екзамен</string>
     <string name="family">Сім\'я</string>
     <string name="vegetable">Овочі</string>
     <string name="animal">Тварини</string>
     <string name="fruit">Фрукти</string>
-    <string name="title_activity_main2">Main2Activity</string>
-    <string name="content_description_splash_image">splashImage</string>
-
+    <string name="content_description">content_description</string>
+    <string name="next">Next</string>
+    <string name="repeat">Repeat</string>
+    <string name="previous">Previous</string>
 
 </resources>

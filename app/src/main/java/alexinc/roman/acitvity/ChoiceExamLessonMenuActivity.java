@@ -9,14 +9,19 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.text.MessageFormat;
+
 import alexinc.roman.global.Const;
 import alexinc.roman.R;
+import alexinc.roman.global.SharedPrefManager;
 
 /**
  * Created by alex on 28.03.2018.
  */
 
 public final class ChoiceExamLessonMenuActivity extends AppCompatActivity {
+
+    private static final String TAG = "ChoiceExamLessonMenu -> ";
 
     private RelativeLayout relativeLayoutMainLayout;
     private ImageView imageView;
@@ -26,6 +31,7 @@ public final class ChoiceExamLessonMenuActivity extends AppCompatActivity {
     private Button btnTraining;
     private Button btnTestExam;
     private int section;
+    private SharedPrefManager prefManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +39,9 @@ public final class ChoiceExamLessonMenuActivity extends AppCompatActivity {
         setContentView(R.layout.layout_menu_choice);
         findUI();
         setupUI();
+        prefManager = SharedPrefManager.getInstance();
         extractSelectedThemeToTraining(getIntent().getExtras());
-        applyChoosedTheme(section);
+        applyChoiceTheme(section);
     }
 
     private void extractSelectedThemeToTraining(final Bundle args) {
@@ -44,12 +51,12 @@ public final class ChoiceExamLessonMenuActivity extends AppCompatActivity {
     }
 
     private void findUI() {
-        relativeLayoutMainLayout = findViewById(R.id.linear_layout_menu_choice);
-        imageView = findViewById(R.id.image_view_menu_choice);
-        allScore = findViewById(R.id.text_view_all_score);
-        userScore = findViewById(R.id.text_view_user_score);
-        btnTraining = findViewById(R.id.button_learn);
-        btnTestExam = findViewById(R.id.button_test);
+        relativeLayoutMainLayout = findViewById(R.id.full_layout);
+        imageView = findViewById(R.id.ivThemeKindPreview);
+        userScore = findViewById(R.id.tvBestScore);
+        allScore = findViewById(R.id.tvTotalPossibleScore);
+        btnTraining = findViewById(R.id.btnLearnGo);
+        btnTestExam = findViewById(R.id.btnExamGo);
     }
 
     private void setupUI() {
@@ -57,7 +64,7 @@ public final class ChoiceExamLessonMenuActivity extends AppCompatActivity {
         btnTestExam.setOnClickListener(examClickListener);
     }
 
-    private void applyChoosedTheme(final int section) {
+    private void applyChoiceTheme(final int section) {
         switch (section) {
             case Const.ALPHABET:
                 setTheme(R.style.themeForAlphabet);
@@ -85,36 +92,36 @@ public final class ChoiceExamLessonMenuActivity extends AppCompatActivity {
 
     private void alphabet() {
         relativeLayoutMainLayout.setBackgroundColor(getResources().getColor(R.color.colorAlphabet));
-        allScore.setText("30");
-        userScore.setText("13");
+        allScore.setText(MessageFormat.format("{0}", prefManager.retrieveAlphabetAll()));
+        userScore.setText(MessageFormat.format("{0}", prefManager.retrieveAlphabetUser()));
         imageView.setImageResource(R.drawable.ic_alphabet);
     }
 
     private void family() {
         relativeLayoutMainLayout.setBackgroundColor(getResources().getColor(R.color.colorFamily));
-        allScore.setText("30");
-        userScore.setText("13");
+        allScore.setText(MessageFormat.format("{0}", prefManager.retrieveFamilyAll()));
+        userScore.setText(MessageFormat.format("{0}", prefManager.retrieveFamilyUser()));
         imageView.setImageResource(R.drawable.ic_family);
     }
 
     private void vegetable() {
         relativeLayoutMainLayout.setBackgroundColor(getResources().getColor(R.color.colorVegetable));
-        allScore.setText("30");
-        userScore.setText("13");
+        allScore.setText(MessageFormat.format("{0}", prefManager.retrieveVegetableScoreAll()));
+        userScore.setText(MessageFormat.format("{0}", prefManager.retrieveVegetableScoreUser()));
         imageView.setImageResource(R.drawable.ic_vegetable);
     }
 
     private void animal() {
         relativeLayoutMainLayout.setBackgroundColor(getResources().getColor(R.color.colorAnimal));
-        allScore.setText("30");
-        userScore.setText("13");
+        allScore.setText(MessageFormat.format("{0}", prefManager.retrieveAnimalAll()));
+        userScore.setText(MessageFormat.format("{0}", prefManager.retrieveAnimalUser()));
         imageView.setImageResource(R.drawable.ic_animal);
     }
 
     private void fruit() {
-        relativeLayoutMainLayout.setBackgroundColor(getResources().getColor(R.color.colorFriut));
-        allScore.setText("30");
-        userScore.setText("13");
+        relativeLayoutMainLayout.setBackgroundColor(getResources().getColor(R.color.colorFruit));
+        allScore.setText(MessageFormat.format("{0}", prefManager.retrieveFruitScoreAll()));
+        userScore.setText(MessageFormat.format("{0}", prefManager.retrieveFruitScoreUser()));
         imageView.setImageResource(R.drawable.ic_fruit);
     }
 
@@ -124,6 +131,7 @@ public final class ChoiceExamLessonMenuActivity extends AppCompatActivity {
             Intent intent = new Intent(ChoiceExamLessonMenuActivity.this, LessonActivity.class);
             intent.putExtra(Const.SELECTED_SECTION, section);
             startActivity(intent);
+            finish();
         }
     };
 
@@ -133,6 +141,7 @@ public final class ChoiceExamLessonMenuActivity extends AppCompatActivity {
             Intent intent = new Intent(ChoiceExamLessonMenuActivity.this, ExamActivity.class);
             intent.putExtra(Const.SELECTED_SECTION, section);
             startActivity(intent);
+            finish();
         }
     };
 

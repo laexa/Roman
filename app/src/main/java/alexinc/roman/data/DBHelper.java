@@ -11,22 +11,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 import alexinc.roman.R;
+import alexinc.roman.global.SharedPrefManager;
 
 
 public final class DBHelper extends SQLiteOpenHelper {
 
-    private static final String TAG = "SQLiteOpenHelperApplication -> ";
+    private static final String TAG = "SQLiteApplication -> ";
 
     private static final String DATABASE_NAME = "DATA_BASE_GAME";
     private static final int DATABASE_VERSION = 11;
 
     static final int COUNT_TABLES = 5;
 
-    static final String TABLE_FAMILY = "family";
-    static final String TABLE_ANIMAL = "animal";
-    static final String TABLE_VEGETABLE = "vegetable";
-    static final String TABLE_FRUIT = "fruit";
     static final String TABLE_ALPHABET = "alphabet";
+    static final String TABLE_ANIMAL = "animal";
+    static final String TABLE_FAMILY = "family";
+    static final String TABLE_FRUIT = "fruit";
+    static final String TABLE_VEGETABLE = "vegetable";
 
     static final String KEY_ID = "_id";
     static final String KEY_WORD = "word";
@@ -135,14 +136,14 @@ public final class DBHelper extends SQLiteOpenHelper {
         } else
             Log.d(TAG, "find 0 rows");
         c.close();
-        Log.d(TAG, "find" + values.size() + "rows");
+        Log.d(TAG, "find " + values.size() + " rows");
         return values;
     }
 
 
     private void loadDataBase(SQLiteDatabase db) {
         //family 8
-
+        SharedPrefManager.getInstance().stroreFamilyAll(8);
         insert(db, DBHelper.TABLE_FAMILY, "Тато", "Tata", R.drawable.ic_father, R.raw.father_original, R.raw.father_translate);
         insert(db, DBHelper.TABLE_FAMILY, "Мама", "Mamă", R.drawable.ic_mother, R.raw.mother_original, R.raw.mother_translate);
         insert(db, DBHelper.TABLE_FAMILY, "Брат", "Frate", R.drawable.ic_brother, R.raw.brother_original, R.raw.brother_translate);
@@ -153,6 +154,7 @@ public final class DBHelper extends SQLiteOpenHelper {
         insert(db, DBHelper.TABLE_FAMILY, "Дочка", "Fiică", R.drawable.ic_daughter, R.raw.daughter_original, R.raw.daughter_translate);
 
         //animal 8
+        SharedPrefManager.getInstance().stroreAnimalAll(8);
         insert(db, DBHelper.TABLE_ANIMAL, "Кіт", "Pisică", R.drawable.ic_cat, R.raw.cat_original, R.raw.cat_translate);
         insert(db, DBHelper.TABLE_ANIMAL, "Собака", "Câinele", R.drawable.ic_dog, R.raw.dog_original, R.raw.dog_translate);
         insert(db, DBHelper.TABLE_ANIMAL, "Кролик", "Iepure", R.drawable.ic_rabbit, R.raw.rabbit_original, R.raw.rabbit_translate);
@@ -163,6 +165,7 @@ public final class DBHelper extends SQLiteOpenHelper {
         insert(db, DBHelper.TABLE_ANIMAL, "Мишка", "Soarece", R.drawable.ic_mouse, R.raw.mother_original, R.raw.mouse_translate);
 
         //fruit 11
+        SharedPrefManager.getInstance().stroreFruitScoreAll(11);
         insert(db, DBHelper.TABLE_FRUIT, "Яблоко", "Măr", R.drawable.ic_apple, R.raw.apple_original, R.raw.apple_translate);
         insert(db, DBHelper.TABLE_FRUIT, "Банан", "Banană", R.drawable.ic_banana, R.raw.banana_original, R.raw.banana_translate);
         insert(db, DBHelper.TABLE_FRUIT, "Вишня", "Cireșe", R.drawable.ic_cherry, R.raw.cherry_original, R.raw.cherry_translate);
@@ -176,6 +179,7 @@ public final class DBHelper extends SQLiteOpenHelper {
         insert(db, DBHelper.TABLE_FRUIT, "Каву", "Pepene verde", R.drawable.ic_watermelon, R.raw.watermelon_original, R.raw.watermelon_translate);
 
         //Vegetable 9
+        SharedPrefManager.getInstance().stroreVegetableScoreAll(9);
         insert(db, DBHelper.TABLE_VEGETABLE, "Капуста", "Varză", R.drawable.ic_cabbage, R.raw.cabbage_original, R.raw.cabbage_translate);
         insert(db, DBHelper.TABLE_VEGETABLE, "Морква", "Morcovi", R.drawable.ic_carrot, R.raw.carrot_original, R.raw.carrot_translate);
         insert(db, DBHelper.TABLE_VEGETABLE, "Кукурудза", "Porumb", R.drawable.ic_corn, R.raw.corn_original, R.raw.corn_translate);

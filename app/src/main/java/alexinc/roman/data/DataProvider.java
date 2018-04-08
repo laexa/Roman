@@ -13,7 +13,7 @@ import java.util.Random;
 import alexinc.roman.data.model.ExamModel;
 import alexinc.roman.data.model.VocabularyModel;
 
-public class DataProvider implements DataOperation {
+public final class DataProvider implements DataOperation {
 
     private static final String TAG = "DataProvider -> ";
     private DBHelper dbHelper;
@@ -96,7 +96,7 @@ public class DataProvider implements DataOperation {
 
     @Override
     public List<ExamModel> getAnimalExamList() {
-        List<VocabularyModel> vocabularyList = getFamilyList();
+        List<VocabularyModel> vocabularyList = getAnimalList();
         List<ExamModel> examList = new ArrayList<>();
         for (VocabularyModel vocabModel : vocabularyList) {
             ExamModel newModel = new ExamModel(vocabModel, randomVariants(vocabModel));
@@ -111,7 +111,7 @@ public class DataProvider implements DataOperation {
 
     @Override
     public List<ExamModel> getVegetableExamList() {
-        List<VocabularyModel> vocabularyList = getFamilyList();
+        List<VocabularyModel> vocabularyList = getVegetableList();
         List<ExamModel> examList = new ArrayList<>();
         for (VocabularyModel vocabModel : vocabularyList) {
             ExamModel newModel = new ExamModel(vocabModel, randomVariants(vocabModel));
@@ -126,7 +126,7 @@ public class DataProvider implements DataOperation {
 
     @Override
     public List<ExamModel> getFruitExamList() {
-        List<VocabularyModel> vocabularyList = getFamilyList();
+        List<VocabularyModel> vocabularyList = getFruitList();
         List<ExamModel> examList = new ArrayList<>();
         for (VocabularyModel vocabModel : vocabularyList) {
             ExamModel newModel = new ExamModel(vocabModel, randomVariants(vocabModel));
@@ -141,7 +141,7 @@ public class DataProvider implements DataOperation {
 
     @Override
     public List<ExamModel> getAlphabetExamList() {
-        List<VocabularyModel> vocabularyList = getFamilyList();
+        List<VocabularyModel> vocabularyList = getAlphabetList();
         List<ExamModel> examList = new ArrayList<>();
         for (VocabularyModel vocabModel : vocabularyList) {
             ExamModel newModel = new ExamModel(vocabModel, randomVariants(vocabModel));
@@ -158,7 +158,7 @@ public class DataProvider implements DataOperation {
     public int countGoodAnswers(List<ExamModel> list) {
         int result = 0;
         for (ExamModel model: list) {
-            if (model.isGuessed()) result++;
+            if (model.isGuessed()) result = result + 1;
         }
         return result;
     }

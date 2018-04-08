@@ -11,7 +11,7 @@
         <item name="colorPrimary">@color/colorWhite</item>
         <item name="colorPrimaryDark">@color/colorAlphabet</item>
         <item name="colorAccent">@color/colorWhite</item>
-        <item name="android:navigationBarColor">@color/colorFriut</item>
+        <item name="android:navigationBarColor">@color/colorFruit</item>
     </style>
 
     <style name="themeForAnimal" parent="Theme.AppCompat.Light.NoActionBar">
@@ -43,21 +43,21 @@
     </style>
 
     <style name="themeForFriut" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:colorPrimary">@color/colorFriut</item>
-        <item name="android:colorPrimaryDark">@color/colorFriut</item>
-        <item name="android:colorAccent">@color/colorFriut</item>
-        <item name="android:navigationBarColor">@color/colorFriut</item>
+        <item name="android:colorPrimary">@color/colorFruit</item>
+        <item name="android:colorPrimaryDark">@color/colorFruit</item>
+        <item name="android:colorAccent">@color/colorFruit</item>
+        <item name="android:navigationBarColor">@color/colorFruit</item>
     </style>
 
     <style name="textStyleForMainMenu">
         <item name="android:textColor">@color/colorWhite</item>
-        <item name="android:textSize">29dp</item>
+        <item name="android:textSize">28sp</item>
         <item name="android:fontFamily">@font/montserrat</item>
     </style>
 
     <style name="textStyleForMenu">
         <item name="android:textColor">@color/colorWhite</item>
-        <item name="android:textSize">20dp</item>
+        <item name="android:textSize">26sp</item>
         <item name="android:fontFamily">@font/montserrat</item>
     </style>
 

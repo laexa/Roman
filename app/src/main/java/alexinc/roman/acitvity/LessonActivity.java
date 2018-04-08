@@ -3,9 +3,9 @@ package alexinc.roman.acitvity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -20,15 +20,17 @@ import alexinc.roman.media.PlaySound;
 
 public final class LessonActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private static final String TAG = "LessonActivity -> ";
+
     private int section;
 
-    private LinearLayout backGroundView;
+    private RelativeLayout backGroundView;
     private TextView tvOriginal;
     private TextView tvTranslate;
     private ImageView ivPreview;
-    private Button btnPrevious;
-    private Button btnNext;
-    private Button btnPlayAgain;
+    private ImageButton btnPrevious;
+    private ImageButton btnNext;
+    private ImageButton btnPlayAgain;
 
     private DataOperation dataOperation;
     private PlaySound playSound;
@@ -56,16 +58,16 @@ public final class LessonActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void findUI() {
-        backGroundView = findViewById(R.id.linear_layout_view_learn);
+        backGroundView = findViewById(R.id.full_layout);
 
-        tvOriginal = findViewById(R.id.text_view_word);
-        tvTranslate = findViewById(R.id.text_view_translate_word);
+        tvOriginal = findViewById(R.id.tvOriginalWord);
+        tvTranslate = findViewById(R.id.tvTranslateWord);
 
-        ivPreview = findViewById(R.id.image_view_learn);
+        ivPreview = findViewById(R.id.ivLearnWord);
 
-        btnPrevious = findViewById(R.id.button_left_layout_learn);
-        btnNext = findViewById(R.id.button_right_layout_learn);
-        btnPlayAgain = findViewById(R.id.button_again_layout_learn);
+        btnPrevious = findViewById(R.id.btnPrevious);
+        btnNext = findViewById(R.id.btnNext);
+        btnPlayAgain = findViewById(R.id.btnPlay);
     }
 
     private void setListeners() {
@@ -77,13 +79,13 @@ public final class LessonActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.button_left_layout_learn:
+            case R.id.btnPrevious:
                 previous();
                 break;
-            case R.id.button_right_layout_learn:
+            case R.id.btnNext:
                 next();
                 break;
-            case R.id.button_again_layout_learn:
+            case R.id.btnPlay:
                 repeat();
                 break;
         }
@@ -91,19 +93,19 @@ public final class LessonActivity extends AppCompatActivity implements View.OnCl
 
     private void changeTheme(int section) {
         switch (section) {
-            case 1:
+            case Const.ALPHABET:
                 prepareAlphabet();
                 break;
-            case 2:
+            case Const.FAMILY:
                 prepareFamily();
                 break;
-            case 3:
+            case Const.VEGETABLE:
                 prepareVegetable();
                 break;
-            case 4:
+            case Const.ANIMAL:
                 prepareAnimal();
                 break;
-            case 5:
+            case Const.FRUIT:
                 prepareFruit();
                 break;
         }
@@ -145,7 +147,7 @@ public final class LessonActivity extends AppCompatActivity implements View.OnCl
 
     private void prepareFruit() {
         setTheme(R.style.themeForFriut);
-        backGroundView.setBackgroundColor(getResources().getColor(R.color.colorFriut));
+        backGroundView.setBackgroundColor(getResources().getColor(R.color.colorFruit));
         ivPreview.setImageResource(R.drawable.ic_fruit);
         list = dataOperation.getFruitList();
     }

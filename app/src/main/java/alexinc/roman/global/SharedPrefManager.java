@@ -64,7 +64,7 @@ public final class SharedPrefManager {
     }
 
     private int retrieveInt(String _s) {
-        return sharedPreferences.getInt(_s, -1);
+        return sharedPreferences.getInt(_s, 0);
     }
 
     private long retrieveLong(String _s) {
@@ -72,11 +72,91 @@ public final class SharedPrefManager {
     }
 
 
-    public void stroreAlphabetScoreAll(final int _score){
+    public void stroreAlphabetAll(final int _score){
         saveInt(ALL_SCORE_ALPHABET, _score);
     }
 
-    public int retrieveAlphabetScoreAll(){
+    public int retrieveAlphabetAll(){
         return retrieveInt(ALL_SCORE_ALPHABET);
+    }
+
+    public void stroreAlphabetUser(final int _score){
+        saveInt(USER_SCORE_ALPHABET, _score);
+    }
+
+    public int retrieveAlphabetUser(){
+        return retrieveInt(USER_SCORE_ALPHABET);
+    }
+
+
+
+    public void stroreAnimalAll(final int _score){
+        saveInt(ALL_SCORE_ANIMAL, _score);
+    }
+
+    public int retrieveAnimalAll(){
+        return retrieveInt(ALL_SCORE_ANIMAL);
+    }
+
+    public void stroreAnimalUser(final int _score){
+        saveInt(USER_SCORE_ANIMAL, _score);
+    }
+
+    public int retrieveAnimalUser(){
+        return retrieveInt(USER_SCORE_ANIMAL);
+    }
+
+
+
+    public void stroreFamilyAll(final int _score){
+        saveInt(ALL_SCORE_FAMILY, _score);
+    }
+
+    public int retrieveFamilyAll(){
+        return retrieveInt(ALL_SCORE_FAMILY);
+    }
+
+    public void stroreFamilyUser(final int _score){
+        saveInt(USER_SCORE_FAMILY, _score);
+    }
+
+    public int retrieveFamilyUser(){
+        return retrieveInt(USER_SCORE_FAMILY);
+    }
+
+
+
+    public void stroreFruitScoreAll(final int _score){
+        saveInt(ALL_SCORE_FRUIT, _score);
+    }
+
+    public int retrieveFruitScoreAll(){
+        return retrieveInt(ALL_SCORE_FRUIT);
+    }
+
+    public void stroreFruitScoreUser(final int _score){
+        saveInt(USER_SCORE_FRUIT, _score);
+    }
+
+    public int retrieveFruitScoreUser(){
+        return retrieveInt(USER_SCORE_FRUIT);
+    }
+
+
+
+    public void stroreVegetableScoreAll(final int _score){
+        saveInt(ALL_SCORE_VEGETABLE, _score);
+    }
+
+    public int retrieveVegetableScoreAll(){
+        return retrieveInt(ALL_SCORE_VEGETABLE);
+    }
+
+    public void stroreVegetableScoreUser(final int _score){
+        saveInt(USER_SCORE_VEGETABLE, _score);
+    }
+
+    public int retrieveVegetableScoreUser(){
+        return retrieveInt(USER_SCORE_VEGETABLE);
     }
 }

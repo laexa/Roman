@@ -1,6 +1,6 @@
 package alexinc.roman.data.model;
 
-public class VocabularyModel {
+public final class VocabularyModel {
 
     private int id;
     private String origin;

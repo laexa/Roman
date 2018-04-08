@@ -14,7 +14,7 @@ import alexinc.roman.R;
  * Created by alex on 30.01.2018.
  */
 
-public class SplashActivity extends AppCompatActivity {
+public final class SplashActivity extends AppCompatActivity {
 
     private static final long SECONDS_ON_SPLASH = 3;
 
@@ -34,6 +34,6 @@ public class SplashActivity extends AppCompatActivity {
                 startActivity(mainIntent);
                 SplashActivity.this.finish();
             }
-        }, TimeUnit.SECONDS.toMillis(SECONDS_ON_SPLASH));
+        }, TimeUnit.SECONDS.toMillis(SECONDS_ON_SPLASH - 2));
     }
 }

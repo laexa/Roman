@@ -11,7 +11,7 @@ import alexinc.roman.R;
  * Created by alex on 29.01.2018.
  */
 
-public class PlaySound {
+public final class PlaySound {
 
     private MediaPlayer mediaPlayer;
     private final Context context;

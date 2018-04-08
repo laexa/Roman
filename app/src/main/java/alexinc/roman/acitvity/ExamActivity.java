@@ -1,10 +1,12 @@
 package alexinc.roman.acitvity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,18 +19,21 @@ import alexinc.roman.data.DataProvider;
 import alexinc.roman.data.model.ExamModel;
 import alexinc.roman.data.model.VocabularyModel;
 import alexinc.roman.global.Const;
+import alexinc.roman.global.SharedPrefManager;
 import alexinc.roman.media.PlaySound;
 
-public class ExamActivity extends AppCompatActivity implements View.OnClickListener {
+public final class ExamActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private static final String TAG = "ExamActivity -> ";
 
     private int section;
 
-    private LinearLayout backgroundView;
+    private RelativeLayout backgroundView;
 
-    private ImageView imageView_1;
-    private ImageView imageView_2;
-    private ImageView imageView_3;
-    private ImageView imageView_4;
+    private ImageView imageVariant_1;
+    private ImageView imageVariant_2;
+    private ImageView imageVariant_3;
+    private ImageView imageVariant_4;
 
     private List<ImageView> imageViewList = new ArrayList<>();
     private TextView textView;
@@ -55,26 +60,26 @@ public class ExamActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void findUI() {
-        backgroundView = findViewById(R.id.linear_layout_view_test);
+        backgroundView = findViewById(R.id.full_layout);
 
-        imageView_1 = findViewById(R.id.imageViewTest_1);
-        imageView_2 = findViewById(R.id.imageViewTest_2);
-        imageView_3 = findViewById(R.id.imageViewTest_3);
-        imageView_4 = findViewById(R.id.imageViewTest_4);
+        imageVariant_1 = findViewById(R.id.iv_1_Variant);
+        imageVariant_2 = findViewById(R.id.iv_2_Variant);
+        imageVariant_3 = findViewById(R.id.iv_3_Variant);
+        imageVariant_4 = findViewById(R.id.iv_4_Variant);
 
-        textView = findViewById(R.id.text_view_test);
+        textView = findViewById(R.id.tvQuestion);
     }
 
     private void setupUI() {
-        imageView_1.setOnClickListener(this);
-        imageView_2.setOnClickListener(this);
-        imageView_3.setOnClickListener(this);
-        imageView_4.setOnClickListener(this);
+        imageVariant_1.setOnClickListener(this);
+        imageVariant_2.setOnClickListener(this);
+        imageVariant_3.setOnClickListener(this);
+        imageVariant_4.setOnClickListener(this);
 
-        imageViewList.add(imageView_1);
-        imageViewList.add(imageView_2);
-        imageViewList.add(imageView_3);
-        imageViewList.add(imageView_4);
+        imageViewList.add(imageVariant_1);
+        imageViewList.add(imageVariant_2);
+        imageViewList.add(imageVariant_3);
+        imageViewList.add(imageVariant_4);
     }
 
     private void extractSelectedThemeToTraining(Bundle extras) {
@@ -85,53 +90,32 @@ public class ExamActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        int position = 0;
-        switch (view.getId()) {
-            case R.id.imageViewTest_1:
-                position = 0;
-                break;
-            case R.id.imageViewTest_2:
-                position = 1;
-                break;
-            case R.id.imageViewTest_3:
-                position = 2;
-                break;
-            case R.id.imageViewTest_4:
-                position = 3;
-                break;
-        }
-        checkSelection(position);
+        checkSelection(imageViewList.indexOf(view));
     }
 
     private void changeTheme(int section) {
         switch (section) {
-            case 1:
+            case Const.ALPHABET:
                 backgroundView.setBackgroundColor(getResources().getColor(R.color.colorAlphabet));
-//                textView.setText("ПРОХОДИМО ТЕСТ ПО АЛФАВИТУ");
                 setTheme(R.style.themeForAlphabet);
                 list = dataOperation.getAlphabetExamList();
                 break;
-            case 2:
+            case Const.FAMILY:
                 backgroundView.setBackgroundColor(getResources().getColor(R.color.colorFamily));
-//                textView.setText("ПРОХОДИМО ТЕСТ ПО СІМЇ");
-                setTheme(R.style.themeForFamily);
                 list = dataOperation.getFamilyExamList();
                 break;
-            case 3:
+            case Const.VEGETABLE:
                 backgroundView.setBackgroundColor(getResources().getColor(R.color.colorVegetable));
-//                textView.setText("ПРОХОДИМО ТЕСТ ПО ОВОЩАХ");
                 setTheme(R.style.themeForVegetable);
                 list = dataOperation.getVegetableExamList();
                 break;
-            case 4:
+            case Const.ANIMAL:
                 backgroundView.setBackgroundColor(getResources().getColor(R.color.colorAnimal));
-//                textView.setText("ПРОХОДИМО ТЕСТ ПО ТВАРИНАХ");
                 setTheme(R.style.themeForAnimal);
                 list = dataOperation.getAnimalExamList();
                 break;
-            case 5:
-                backgroundView.setBackgroundColor(getResources().getColor(R.color.colorFriut));
-//                textView.setText("ПРОХОДИМО ТЕСТ ПО ФРУКТАХ");
+            case Const.FRUIT:
+                backgroundView.setBackgroundColor(getResources().getColor(R.color.colorFruit));
                 setTheme(R.style.themeForFriut);
                 list = dataOperation.getFruitExamList();
                 break;
@@ -174,11 +158,45 @@ public class ExamActivity extends AppCompatActivity implements View.OnClickListe
 
     private void arriveToFinish() {
         int totalScore = dataOperation.countGoodAnswers(list);
-        if ((totalScore/list.size() * 100) > 60) {
-            Toast.makeText(this, "Nice " + (totalScore/list.size() * 100) + "%", Toast.LENGTH_LONG).show();
-            playSound.playPraiseSound();
-        } else {
-            Toast.makeText(this, "not bad but learn more and try again", Toast.LENGTH_LONG).show();
+        storeResult(totalScore);
+        String displayMsg = "Your result = " + totalScore;
+        playSound.playPraiseSound();
+        finalWindowShow(displayMsg);
+    }
+
+    private void finalWindowShow(final String msg) {
+        AlertDialog.Builder builder;
+        builder = new AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert);
+        builder.setTitle("Congratulation!")
+                .setMessage(msg)
+                .setNeutralButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        ExamActivity.this.finish();
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_info)
+                .show();
+    }
+
+
+    private void storeResult(final int totalScore) {
+        SharedPrefManager manager = SharedPrefManager.getInstance();
+        switch (section) {
+            case Const.ALPHABET:
+                manager.stroreAlphabetUser(totalScore);
+                break;
+            case Const.FAMILY:
+                manager.stroreFamilyUser(totalScore);
+                break;
+            case Const.VEGETABLE:
+                manager.stroreVegetableScoreUser(totalScore);
+                break;
+            case Const.ANIMAL:
+                manager.stroreAnimalUser(totalScore);
+                break;
+            case Const.FRUIT:
+                manager.stroreFamilyUser(totalScore);
+                break;
         }
     }
 

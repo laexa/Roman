@@ -1,6 +1,6 @@
 package alexinc.roman.global;
 
-public class Const {
+public final class Const {
 
     public static final String SELECTED_SECTION = "section";
 
